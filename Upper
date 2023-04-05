@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+IFS=$'\n'
+
+for EACH_FILE in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS
+do
+   NEW_FILE=$(echo $* | tr '[:lower:]' '[:upper:]')
+   mv $EACH_FILE $NEW_FILE
+done
+

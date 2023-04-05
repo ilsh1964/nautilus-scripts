@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+IFS=$'\n'
+
+for EACH_FILE in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS
+do
+   touch $EACH_FILE 
+done
+

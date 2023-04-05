@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+NOW=$(date +"20%y-%m-%d")
+IFS=$'\n'
+
+for EACH_FILE in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS
+do
+   filename=$(basename -- "$EACH_FILE")
+   fname="${filename%.*}"
+   extension="${filename##*.}"
+   if test $fname = $extension; then
+     NEW_FNAME=$extension-$NOW
+   else
+     num_char=$(wc -c $fname)
+     if test $num_char = 0; then  
+       NEW_FNAME=.$extension-$NOW 
+     else
+       NEW_FNAME=$fname-$NOW.$extension
+     fi
+   fi
+   cp $filename $NEW_FNAME
+done
+
