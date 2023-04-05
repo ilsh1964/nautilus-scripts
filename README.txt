@@ -1,3 +1,4 @@
 Put these files under:
-.local.share/nautilus/scripts
+$HOME/.local/share/nautilus/scripts/
+
 
